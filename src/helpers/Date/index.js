@@ -1,3 +1,5 @@
+// La valeur retour de getMonth() commence à 0
+
 export const MONTHS = {
   0: "janvier",
   1: "février",
