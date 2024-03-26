@@ -21,7 +21,7 @@ const Slider = () => {
       );
     }
     if (index === byDateDesc.length) {
-      // setTimeout(() => setIndex(0), 0);
+      // Pas de timer pour revenir à la slide de départ
       setIndex(0);
     }
   };
