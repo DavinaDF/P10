@@ -19,6 +19,7 @@ const Form = ({ onSuccess, onError }) => {
       try {
         await mockContactApi();
         setSending(false);
+        // Appel de onSuccess() pour afficher le message de confirmation d'envoi
         onSuccess();
       } catch (err) {
         setSending(false);
