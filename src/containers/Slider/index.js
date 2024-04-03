@@ -11,17 +11,10 @@ const Slider = () => {
     new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
   );
   const nextCard = () => {
-    // Ajout d'une condition pour définir un timer
-    if (index < byDateDesc.length) {
-      setTimeout(
-        () => setIndex(index < byDateDesc.length ? index + 1 : 0),
-        5000
-      );
-    }
-    if (index === byDateDesc.length) {
-      // Pas de timer pour revenir à la slide de départ
-      setIndex(0);
-    }
+    setTimeout(
+      () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
+      5000
+    );
   };
   useEffect(() => {
     nextCard();
