@@ -41,12 +41,12 @@ const Slider = () => {
       ;
       <div className="SlideCard__paginationContainer">
         <div className="SlideCard__pagination">
-          {byDateDesc.map((event, radioIdx) => (
-            // Ajout de event dans les paramètres de la fonction de mapping
+          {byDateDesc?.map((e, radioIdx) => (
             <input
-              key={`${event.id}`}
+              key={`${e.id}`}
               type="radio"
               name="radio-button"
+              // erreur d'écriture : index et non idx
               checked={index === radioIdx}
             />
           ))}
