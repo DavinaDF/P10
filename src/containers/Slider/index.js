@@ -23,7 +23,7 @@ const Slider = () => {
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
         <div
-          key={event.title}
+          key={event.id}
           className={`SlideCard SlideCard--${
             index === idx ? "display" : "hide"
           }`}
@@ -41,9 +41,9 @@ const Slider = () => {
       ;
       <div className="SlideCard__paginationContainer">
         <div className="SlideCard__pagination">
-          {byDateDesc?.map((e, radioIdx) => (
+          {byDateDesc?.map((event, radioIdx) => (
             <input
-              key={`${e.id}`}
+              key={event.id}
               type="radio"
               name="radio-button"
               // erreur d'écriture : index et non idx
