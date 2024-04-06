@@ -7,9 +7,13 @@ import "./style.scss";
 const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
-  const byDateDesc = data?.focus.sort((evtA, evtB) =>
-    new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
-  );
+  // Vérifier si data.focus est défini et qu'il s'agit d'un tableau
+  const byDateDesc =
+    data?.focus && Array.isArray(data.focus)
+      ? data.focus.sort((evtA, evtB) =>
+          new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+        )
+      : [];
   const nextCard = () => {
     setTimeout(
       () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
@@ -48,6 +52,7 @@ const Slider = () => {
               name="radio-button"
               // erreur d'écriture : index et non idx
               checked={index === radioIdx}
+              onChange={() => setIndex(radioIdx)}
             />
           ))}
         </div>
