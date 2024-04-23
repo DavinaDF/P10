@@ -20,13 +20,13 @@ const Page = () => {
         <Menu />
       </header>
       <main>
-        <section className="SliderContainer">
+        <section className="SliderContainer" id="nos-services">
           <Slider />
         </section>
         <section className="ServicesContainer">
           <h2 className="Title">Nos services</h2>
           <p>Nous organisons des événements sur mesure partout dans le monde</p>
-          <div className="ListContainer" id="nos-services">
+          <div className="ListContainer">
             <ServiceCard imageSrc="/images/priscilla-du-preez-Q7wGvnbuwj0-unsplash1.png">
               <h3>Soirée d’entreprise</h3>
               Une soirée d’entreprise vous permet de réunir vos équipes pour un

@@ -11,11 +11,13 @@ const Slider = () => {
   const byDateDesc =
     data?.focus && Array.isArray(data.focus)
       ? data.focus.sort((evtA, evtB) =>
-          new Date(evtA.date) < new Date(evtB.date) ? -1 : 1
+          // Changement de l'ordre
+          new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
         )
       : [];
   const nextCard = () => {
     setTimeout(
+      // Ajout de -1 dans la condition pour enlever side vide
       () => setIndex(index < byDateDesc.length - 1 ? index + 1 : 0),
       5000
     );
@@ -27,7 +29,7 @@ const Slider = () => {
     <div className="SlideCardList">
       {byDateDesc?.map((event, idx) => (
         <div
-          key={event.id}
+          key={event.title}
           className={`SlideCard SlideCard--${
             index === idx ? "display" : "hide"
           }`}
@@ -47,12 +49,13 @@ const Slider = () => {
         <div className="SlideCard__pagination">
           {byDateDesc?.map((event, radioIdx) => (
             <input
-              key={event.id}
+              key={event.title}
               type="radio"
               name="radio-button"
               // erreur d'écriture : index et non idx
               checked={index === radioIdx}
-              onChange={() => setIndex(radioIdx)}
+              // erreur console, il manquait readOnly (ou onChange)
+              readOnly
             />
           ))}
         </div>
