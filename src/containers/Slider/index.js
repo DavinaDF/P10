@@ -8,6 +8,7 @@ const Slider = () => {
   const { data } = useData();
   const [index, setIndex] = useState(0);
   // Vérifier si data.focus est défini et qu'il s'agit d'un tableau
+
   const byDateDesc =
     data?.focus && Array.isArray(data.focus)
       ? data.focus.sort((evtA, evtB) =>
@@ -15,6 +16,7 @@ const Slider = () => {
           new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
         )
       : [];
+
   const nextCard = () => {
     setTimeout(
       // Ajout de -1 dans la condition pour enlever side vide
@@ -22,6 +24,7 @@ const Slider = () => {
       5000
     );
   };
+
   useEffect(() => {
     nextCard();
   });

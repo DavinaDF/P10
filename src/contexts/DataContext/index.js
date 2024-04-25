@@ -27,7 +27,10 @@ export const DataProvider = ({ children }) => {
       const loadData = await api.loadData();
       setData(loadData);
       // On place dans last les données du dernier évènement
-      setLast(loadData.events[loadData.events.length - 1]);
+      const byDateDesc = loadData.events.sort((evtA, evtB) =>
+        new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
+      );
+      setLast(byDateDesc[0]);
     } catch (err) {
       setError(err);
     }

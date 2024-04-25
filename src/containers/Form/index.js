@@ -13,7 +13,6 @@ const mockContactApi = () =>
 const Form = ({ onSuccess, onError }) => {
   // Usestate pour la gestion de l'état d'envoi du formulaire
   const [sending, setSending] = useState(false);
-  //
   const sendContact = useCallback(
     async (evt) => {
       evt.preventDefault();
@@ -31,6 +30,7 @@ const Form = ({ onSuccess, onError }) => {
     },
     [onSuccess, onError]
   );
+
   return (
     <form onSubmit={sendContact}>
       <div className="row">
